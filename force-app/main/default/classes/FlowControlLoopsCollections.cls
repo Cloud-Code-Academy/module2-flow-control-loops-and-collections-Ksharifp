@@ -290,11 +290,10 @@ public with sharing class FlowControlLoopsCollections {
         Set<String> stringSet = new Set<String>();
 
         //add strings to the set
-        for (Ineger i = 0; i < inputList.size(); i++) {
-            stringSet.add(inputList.(i));    
+        for (Integer i = 0; i < inputList.size(); i++) {
+            stringSet.add(inputList(i));    
         }
         return stringSet; // Replace null with the variable you used to store the result
-        system.debug(stringSet.size());
     }
 
     /** 
@@ -305,7 +304,7 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer sumPositiveIntegers() {
         List<Integer> numbers = new List<Integer>{-1, 2, -3, 4, -5, 6}; //DO NOT CHANGE
-        Ineger sumOfPositives = 0;
+        Integer sumOfPositives = 0;
         // Loop through the list of integers
             // if the number is negative skip this iteration
         for (Integer num : numbers) {
@@ -329,8 +328,8 @@ public with sharing class FlowControlLoopsCollections {
         Integer indexOfWordFound = null;
         // Loop through the list of words
             // If the current word is the word to find, exit the loop
-        for (String W : words) {
-            if (w == wordToFind) {
+        for (String word : words) {
+            if (word == wordToFind) {
                 indexOfWordFound = words.indexOf(W);
                 break;
             } 
@@ -349,8 +348,8 @@ public with sharing class FlowControlLoopsCollections {
         // The list of money in the wallet, represented in dollars and cents
         List<Decimal> moneyInWallet = new List<Decimal>{0.50, 10, 3.84, 24.60, 9.08, 50, 4.90}; //DO NOT CHANGE
         Decimal sumInWallet = 0;
-        for (Decimal Dollars : moneyInWallet) {
-            sumInWallet = sumInWallet + Dollars;
+        for (Decimal dollars : moneyInWallet) {
+            sumInWallet = sumInWallet + dollars;
             if (sumInWallet > 40) {
                 break;
             }
@@ -395,16 +394,16 @@ public with sharing class FlowControlLoopsCollections {
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
         Double employeeSalary = null;
-        Map<String,Double> employeeSalaries = new Map <String,Doubl>();
+        Map<String,Double> employeeSalaries = new Map <String,Double>();
         // Add key-value pairs to the Map
         // add John Doe => 50000
-        employeeName.put('John Doe',50000);
+        employeeSalaries.put('John Doe',50000);
         // add Jane Smith => 60000
-        employeeName.put('Jane Smith',60000);
+        employeeSalaries.put('Jane Smith',60000);
         // add Sam Brown => 55000
-        employeeName.put('Sam Brown',55000);
+        employeeSalaries.put('Sam Brown',55000);
         // add Alice Johnson => 65000
-        employeeName.put('Alice Johnson',65000);
+        employeeSalaries.put('Alice Johnson',65000);
 
         // Get the salary of the employee
         employeeSalary = employeeSalaries.get(employeeName);
