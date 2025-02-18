@@ -29,8 +29,11 @@ public with sharing class FlowControlLoopsCollections {
      * @return "Hello World!" if x greater than y, otherwise return null.
      */
     public static String helloWorld(Integer x, Integer y) {
-        if ( x == null || y == null || x < y ){
-        return null; // Replace null with the variable you used to store the result
+        if ( x == null || y == null ){
+            return null; // Replace null with the variable you used to store the result
+        }
+        if (x <= y) {
+            return Null;
         }
         return 'Hello World!';
     }
@@ -63,6 +66,9 @@ public with sharing class FlowControlLoopsCollections {
     public static Integer findMax(Integer num1, Integer num2) {
         // Initialize largestNum as null
         Integer largestNum = null;
+        if (num1 == null || num2 == null) {
+            return null;
+        }
         if ( num1 >= num2 ) {
             return largestNum = num1;
         } 
@@ -121,15 +127,16 @@ public with sharing class FlowControlLoopsCollections {
      * @return A string indicating whether the input is "Empty", "Null", or "Contains Text".
      */
     public static String checkString(String a) {
+        if (a == null) {
+            return 'Null';
+        }
         if (String.isEmpty( a )) {
             return 'Empty';
         }
         if (String.isNotEmpty( a )) {
             return 'Contains Text';
         }
-        if (a == null) {
-            return 'Null';
-        }
+        
         return null; // Replace null with the variable you used to store the result
     }
 
@@ -185,7 +192,7 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String returnHelloWorld() {
         // Initialize the result String
-        String helloWorlds;
+        String helloWorlds = '';
 
         // Use a for loop to append 'Hello World!;' to the result string three times 
         for ( Integer i = 0 ; i < 3 ; i++){
@@ -206,13 +213,13 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static String repeatString(String inputString, Integer repeatCount) {
         // Initialize the result String
-        String repeatString;
+        String repeatString = '';
         // Use a for loop to append the inputString to the result string repeatCount times
         
         for ( Integer i = 0 ; i < repeatCount ; i++) {
             // If it is not the last iteration, add a semicolon to separate the strings
             if (i != repeatCount - 1 ) {
-                repeatString = repeatString + inputstring + ';';
+                repeatString = repeatString + inputstring + '; ';
             } else {
                 repeatString = repeatString + inputString;
             }
@@ -253,7 +260,7 @@ public with sharing class FlowControlLoopsCollections {
         List<Integer> numberList = new List<Integer>{1, 2, 3, 4, 5}; //DO NOT CHANGE
 
         // Remove the 3rd element (number 3) from the list
-        numberList.remove(3);
+        numberList.remove(2);
 
         // Return the updated list
         return numberList; // Replace null with the variable you used to store the result
@@ -291,7 +298,7 @@ public with sharing class FlowControlLoopsCollections {
 
         //add strings to the set
         for (Integer i = 0; i < inputList.size(); i++) {
-            stringSet.add(inputList(i));    
+            stringSet.add(inputList.get(i));    
         }
         return stringSet; // Replace null with the variable you used to store the result
     }
@@ -325,12 +332,15 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer findWordInList(String wordToFind, List<String> words) {
         // The variable to store the index of the word
-        Integer indexOfWordFound = null;
+        Integer indexOfWordFound = 0;
         // Loop through the list of words
             // If the current word is the word to find, exit the loop
+        if (!words.contains(wordToFind)) {
+                indexOfWordFound = -1;
+        }
         for (String word : words) {
             if (word == wordToFind) {
-                indexOfWordFound = words.indexOf(W);
+                indexOfWordFound = words.indexOf(word);
                 break;
             } 
         }
@@ -393,8 +403,8 @@ public with sharing class FlowControlLoopsCollections {
      */
     public static Integer getSalary(String employeeName) {
         // Initialize a Map
-        Double employeeSalary = null;
-        Map<String,Double> employeeSalaries = new Map <String,Double>();
+        Integer employeeSalary = null;
+        Map<String,Integer> employeeSalaries = new Map <String,Integer>();
         // Add key-value pairs to the Map
         // add John Doe => 50000
         employeeSalaries.put('John Doe',50000);
@@ -406,9 +416,12 @@ public with sharing class FlowControlLoopsCollections {
         employeeSalaries.put('Alice Johnson',65000);
 
         // Get the salary of the employee
-        employeeSalary = employeeSalaries.get(employeeName);
+        if (employeeSalaries.containsKey(employeeName)    ) {
+            employeeSalary = employeeSalaries.get(employeeName);
+            return employeeSalary;
+        }
         // Return the salary of the employee, or null if the employee is not found in the Map
-        return employeeSalary; // Replace null with the variable you used to store the result
+        return null; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -426,9 +439,13 @@ public with sharing class FlowControlLoopsCollections {
         Map<String, Integer> employeeSalaries = new Map<String, Integer>();
 
         // Add key-value pairs to the Map
+        employeeSalaries.put('John Doe',50000);
         // add John Doe => 50000
+        employeeSalaries.put('Jane Smith',60000);
         // add Jane Smith => 60000
+        employeeSalaries.put('Sam Brown',55000);
         // add Sam Brown => 55000
+        employeeSalaries.put('Alice Johnson',65000);
         // add Alice Johnson => 65000
 
         // Initialize a list to store the names of high paid employees
